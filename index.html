@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Timer</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+  <div class="app">
+    <div class="app-content">
+      <div class="progress">
+        <div class="progress__inner">30</div>
+        <div class="hehe"></div>
+      </div>
+
+      <button class="start" onclick="handleStart()">Start</button>
+
+      <div class="action">
+        <button class="setting-button" onclick="handleSetting()">Setting</button>
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="setting">
+      <div class="title">Settings</div>
+      <div class="subtitle">Workout time: 6 mins</div>
+
+      <div class="parameter">
+        <div class="parameter__name">Exercise</div>
+        <div class="control">
+          <div class="control__minus">-</div>
+          <div class="control__value">30 secs</div>
+          <div class="control__plus">+</div>
+        </div>
+      </div>
+      <div class="parameter">
+        <div class="parameter__name">Rest</div>
+        <div class="control">
+          <div class="control__minus">-</div>
+          <div class="control__value">15 secs</div>
+          <div class="control__plus">+</div>
+        </div>
+      </div>
+      <div class="parameter">
+        <div class="parameter__name">Duration</div>
+        <div class="control">
+          <div class="control__minus">-</div>
+          <div class="control__value">8 sets</div>
+          <div class="control__plus">+</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    var maxCount = 10;
+    var counter = 10;
+    var progressElement = document.querySelector(".progress__inner");
+    var startButton = document.querySelector(".start");
+    var settingPanel = document.querySelector(".setting");
+    var overlayElement = document.querySelector(".overlay");
+
+    overlayElement.addEventListener("click", function() {
+      document.body.classList.remove('pannel-animation__open');
+    })
+  
+    var intervalId;
+
+    const resetInterval = () => {
+      clearInterval(intervalId);
+      intervalId = null;
+      counter = maxCount;
+    }
+    
+    function handleStart() {
+      if (intervalId) {
+        resetInterval();
+      }
+
+      startButton.innerHTML = "Reset"
+
+      intervalId = setInterval(function(){
+        progressElement.innerText = counter;
+        
+        if (counter === 0) {
+          resetInterval()
+          startButton.innerHTML = "Start"
+        } else {
+          counter = counter - 1;
+        }
+
+      }, 1000);
+    }
+
+    function handleSetting() {
+      document.body.classList.add('pannel-animation__open')
+    }
+  </script>
+</body>
+</html>

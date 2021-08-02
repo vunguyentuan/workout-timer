@@ -1,0 +1,111 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  height: 100%;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-content {
+  width: 100vw;
+}
+
+.progress {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 50px;
+  padding: 10px;
+  margin: auto;
+}
+
+.progress__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.start {
+  margin-top: 30px;
+  background-color: wheat;
+  padding: 10px 30px;
+}
+
+.setting {
+  display: none;
+}
+
+.parameter {
+  padding: 10px;
+  border-bottom: 1px solid blue;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control__value {
+  flex: 1;
+  font-size: 34px;
+  margin: 0 18px;
+}
+
+.control__minus, .control__plus {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px blue solid;
+  color: blue;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+}
+
+.pannel-animation__open .setting {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  width: 100%;
+  padding: 50px 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.pannel-animation__open .overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
